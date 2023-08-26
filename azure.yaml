@@ -1,0 +1,16 @@
+name: ContainerappsAuthentication
+metadata:
+  template: containerapps-authentication@0.0.1-beta
+infra:
+  provider: terraform
+services:
+  nextapp-restricted-ad:
+    project: ./scr/NextApp/
+    module: app/next-app
+    docker:
+      path: ./Dockerfile
+      context: ./
+      web:
+      project: scr/NextApp/
+    language: js
+    host: containerapp
